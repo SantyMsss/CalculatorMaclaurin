@@ -1,10 +1,7 @@
 import javax.swing.JOptionPane;
 
-public class PruebaMaclaurin {
-   
-}
 
-class MaclaurinCalculator {
+public class PruebaMaclaurin {
     public void calculateAndDisplayResult() {
         String funcion = JOptionPane.showInputDialog("Elija la función (exponencial, logaritmo natural, seno, coseno):").toLowerCase();
         double x = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor de x:"));
@@ -81,7 +78,7 @@ class MaclaurinCalculator {
 
 
      public static void main(String[] args) {
-        MaclaurinCalculator calculator = new MaclaurinCalculator();
+         PruebaMaclaurin calculator = new PruebaMaclaurin();
         calculator.calculateAndDisplayResult();
     }
 
