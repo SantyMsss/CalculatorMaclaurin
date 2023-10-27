@@ -2,25 +2,44 @@ import javax.swing.JOptionPane;
 
 
 public class PruebaMaclaurin {
+
+
+
     public void calculateAndDisplayResult() {
-        String funcion = JOptionPane.showInputDialog("Elija la función (exponencial, logaritmo natural, seno, coseno):").toLowerCase();
+
+
+
+        int funcion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la función a aproximar:\n"
+                + "1. seno\n"
+                + "2. coseno\n"
+                + "3. \n"
+                + "4. \n"));
+                
+
         double x = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor de x:"));
         double resultado = 0.0;
 
-        if (funcion.equals("exponencial")) {
-            resultado = calcularAproximacionExponencial(x);
-        } else if (funcion.equals("logaritmo natural")) {
-            resultado = calcularAproximacionLogaritmoNatural(x);
-        } else if (funcion.equals("seno")) {
-            resultado = calcularAproximacionSeno(x);
-        } else if (funcion.equals("coseno")) {
-            resultado = calcularAproximacionCoseno(x);
-        } else {
-            JOptionPane.showMessageDialog(null, "Función no reconocida.");
-            System.exit(1);
+        switch (funcion) {
+            case 1:
+                resultado = calcularAproximacionSeno(x);
+                break;
+            case 2:
+                resultado = calcularAproximacionCoseno(x);
+                
+                break;
+            case 3:
+                resultado = (x);
+                break;
+            case 4:
+                resultado = (x);
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Error: Opción inválida.");
+                System.exit(1);
         }
 
-        JOptionPane.showMessageDialog(null, String.format("Aproximación de %s(%.2f) con 10 términos de la serie de Maclaurin: %.6f", funcion, x, resultado));
+        
+        JOptionPane.showMessageDialog(null, "El resultado es de la aproximacion es: " + resultado);
     }
 
     public double calcularAproximacionExponencial(double x) {
