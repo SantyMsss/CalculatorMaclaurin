@@ -71,7 +71,7 @@ public class PruebaMaclaurin {
     }
 
     // FUNCION LOGARITMO NATURAL
-    public double Ln(double x) {
+    public static double Ln(double x) {
         if (x <= 0) {
             JOptionPane.showMessageDialog(null, "Error: El logaritmo natural no está definido para números no positivos.");
             System.exit(1);
@@ -79,18 +79,18 @@ public class PruebaMaclaurin {
 
         double aproximacion = 0.0;
         for (int n = 1; n <= 10; n++) {
-            if (n % 2 == 1) {
-                aproximacion += (1.0 / n) * Math.pow((x - 1) / x, n);
-            } else {
-                aproximacion -= (1.0 / n) * Math.pow((x - 1) / x, n);
-            }
+            aproximacion += (1.0 / n) * Math.pow((x - 1) / x, n);
         }
         return aproximacion;
     }
+    
 
 
-    // FUNCION SENO
+        // FUNCION SENO
     public double Seno(double x) {
+        // Convertir de grados a radianes
+        x = Math.toRadians(x);
+
         double aproximacion = 0.0;
         for (int n = 0; n < 10; n++) {
             aproximacion += Math.pow(-1, n) * Math.pow(x, 2 * n + 1) / factorial(2 * n + 1);
@@ -99,14 +99,16 @@ public class PruebaMaclaurin {
     }
 
     // FUNCION COSENO
-    // OJO NO SE ESTA DANDO EL RESULTADO CORRECTO
     public double Coseno(double x) {
+        // Convertir de grados a radianes
+        x = Math.toRadians(x);
+
         double aproximacion = 0.0;
         for (int n = 0; n < 10; n++) {
             aproximacion += Math.pow(-1, n) * Math.pow(x, 2 * n) / factorial(2 * n);
         }
         return aproximacion;
-}
+    }
 
 
     // FUNCION FACTORIAL
