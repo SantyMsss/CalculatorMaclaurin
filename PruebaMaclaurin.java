@@ -24,12 +24,12 @@ public class PruebaMaclaurin {
         // Seleccionar la función a aproximar   
         do{
         int funcion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la función a aproximar:\n"
-                + "1. seno\n"
-                + "2. coseno\n"
-                + "3. Ln\n"
-                + "4. Euler\n"));
+                + "1. Seno\n"
+                + "2. Coseno\n"
+                + "3. Euler\n"));
                 
         // Ingresar el valor de x
+        
         double x = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor de x:"));
         double resultado = 0.0;
 
@@ -40,12 +40,12 @@ public class PruebaMaclaurin {
                 break;
             case 2:
                 resultado = Coseno(x);
-
                 break;
-            case 3:
+           /* case 4:
                 resultado = Ln(x);
                 break;
-            case 4:
+            */
+            case 3:
                 resultado = Exponencial(x);
                 break;
             default:
@@ -86,10 +86,15 @@ public class PruebaMaclaurin {
     
 
 
-        // FUNCION SENO
+        
+    // FUNCION SENO
     public double Seno(double x) {
+
+
+
         // Convertir de grados a radianes
         x = Math.toRadians(x);
+        
 
         double aproximacion = 0.0;
         for (int n = 0; n < 10; n++) {
@@ -97,6 +102,7 @@ public class PruebaMaclaurin {
         }
         return aproximacion;
     }
+    
 
     // FUNCION COSENO
     public double Coseno(double x) {
@@ -125,8 +131,23 @@ public class PruebaMaclaurin {
 
 
 
-     public static void main(String[] args) {
-         PruebaMaclaurin cl = new PruebaMaclaurin();
+    public static void main(String[] args) {
+        String mensaje = "¡Bienvenido a la Calculadora de Aproximaciones de Maclaurin!\n\n"
+        + "Manual de Usuario:\n\n"
+        + "En el siguiente menú, podrás seleccionar la función para conocer su aproximación mediante la serie de Maclaurin.\n"
+        + "Se utiliza n = 10 en todas las aproximaciones.\n\n"
+        + "1. Función Seno:\n"
+        + "   - Ingresa el valor de x (en grados). Rango permitido: 0 - 360.\n\n"
+        + "2. Función Coseno:\n"
+        + "   - Ingresa el valor de x (en grados). Rango permitido: 0 - 360.\n\n"
+        + "3. Función Euler (e^x):\n"
+        + "   - Ingresa cualquier valor de x.\n\n"
+        + "Presiona 'Cancelar' para salir de la aplicación.\n\n";
+        
+JOptionPane.showMessageDialog(null, mensaje);
+
+        
+        PruebaMaclaurin cl = new PruebaMaclaurin();
         cl.Calculadora();
     }
 
